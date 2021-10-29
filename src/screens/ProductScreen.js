@@ -2,24 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Button, Card, Form } from 'react-bootstrap';
 import Rating from '../components/Rating';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProductDetails } from '../actions/productActions';
 
-import axios from 'axios';
+
 
 const ProductScreen = ({match, history}) => {
 	const [qty, setQty] = useState(1)
 
-	const [ product, setProduct ] = useState([])
+	const dispatch = useDispatch()
+	const productDetails = useSelector(state => state.productDetails)
+	const {loading, error, product} = productDetails
 
     useEffect(() => {
-    const getProduct = async () =>{
-        const { data } = await axios.get(`/products/${match.params.id}`);
+		dispatch(listProductDetails(match.params.id))
+	},[dispatch, match])
 
-        setProduct(data)
-    }
-      getProduct()
-	},[])
-
-	const addToCart = () => {
+	const addToCartHandler = () => {
 		history.push(`/cart/${match.params.id}?qty=${qty}`)
 	}
 
@@ -102,7 +101,7 @@ const ProductScreen = ({match, history}) => {
 
 								<ListGroup.Item>
 									<Button 
-									onClick={addToCart}
+									onClick={addToCartHandler}
 									className='btn-block' type='button' disabled={product.countInStock === 0 }>Add to Cart</Button>
 								</ListGroup.Item>
 

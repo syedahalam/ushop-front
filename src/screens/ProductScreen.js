@@ -11,6 +11,7 @@ import { listProductDetails } from '../actions/productActions';
 
 const ProductScreen = ({match, history}) => {
 	const [qty, setQty] = useState(1)
+	// const {id} = useParams()
 
 	const dispatch = useDispatch()
 	const productDetails = useSelector(state => state.productDetails)

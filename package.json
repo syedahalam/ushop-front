@@ -1,6 +1,6 @@
 {
   "name": "ushop-frontend",
-  "proxy": "http://localhost:8000",
+  "proxy": "https://scary-mummy-74832.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

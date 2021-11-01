@@ -21,11 +21,14 @@ export const listProducts = () => async(dispatch) => {
                 });
         
     } catch (error) {
-        dispatch({ type: PRODUCT_LIST_FAIL,
-             payload: error.response && error.response.data.message
-              ? error.response.data.message
-              : error.message,
-            });
+        dispatch({
+					type: PRODUCT_LIST_FAIL,
+					// error.response && error.response.data.message  -<changed  after user auth in backend
+					payload:
+						error.response && error.response.data.detail
+							? error.response.data.detail
+							: error.message,
+				});
     }
 }
 
@@ -41,8 +44,9 @@ export const listProductDetails = (id) => async (dispatch) => {
 		dispatch({
 			type: PRODUCT_DETAILS_FAIL,
 			payload:
-				error.response && error.response.data.message
-					? error.response.data.message
+				error.response && error.response.data.detail
+					? // error.response && error.response.data.message  -<changed  after user auth in backend
+					  error.response.data.detail
 					: error.message,
 		});
 	}

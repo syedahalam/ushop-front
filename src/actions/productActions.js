@@ -14,9 +14,7 @@ export const listProducts = () => async(dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST });
         //make an api call through axios
-        const { data } = await axios.get(
-					'https://scary-mummy-74832.herokuapp.com/products/'
-				);
+        const { data } = await axios.get('/products/');
 
         dispatch({ type: PRODUCT_LIST_SUCCESS,
                     payload: data
@@ -39,9 +37,7 @@ export const listProductDetails = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: PRODUCT_DETAILS_REQUEST });
 		//make an api call through axios
-		const { data } = await axios.get(
-			`https://scary-mummy-74832.herokuapp.com/products/${id}`
-		);
+		const { data } = await axios.get(`/products/${id}`);
 
 		dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
 	} catch (error) {

@@ -21,8 +21,10 @@ const CartScreen = ({match, location, history}) => {
     useEffect(()=>{
         if(productId){
             dispatch(addToCart(productId, qty))
-        }
-    }, [dispatch, productId, qty])
+      
+		}
+		//eslint-disable-next-line
+    }, [])
 
     const removeFromCartHandler = (id)=>{
         dispatch(removeFromCart(id))

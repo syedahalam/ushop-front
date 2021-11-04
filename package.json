@@ -1,6 +1,6 @@
 {
   "name": "ushop-frontend",
-  "proxy": "https://scary-mummy-74832.herokuapp.com",
+  "proxy": "https://agile-sea-83094.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

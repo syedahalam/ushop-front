@@ -14,7 +14,7 @@ export const listProducts = () => async (dispatch) => {
 		dispatch({ type: PRODUCT_LIST_REQUEST });
 		//make an api call through axios
 		const { data } = await axios.get(
-			'https://agile-sea-83094.herokuapp.com/products/'
+			'https://stormy-journey-70089.herokuapp.com/products/'
 		);
 
 		dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
@@ -35,7 +35,7 @@ export const listProductDetails = (id) => async (dispatch) => {
 		dispatch({ type: PRODUCT_DETAILS_REQUEST });
 		//make an api call through axios
 		const { data } = await axios.get(
-			`https://agile-sea-83094.herokuapp.com/products/${id}`
+			`https://stormy-journey-70089.herokuapp.com/products/${id}`
 		);
 
 		dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
